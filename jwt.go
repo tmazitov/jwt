@@ -8,6 +8,12 @@ type JwtConfig struct {
 	private []byte
 }
 
+func NewJwtConfig(privateString string) (*JwtConfig, error) {
+	return &JwtConfig{
+		private: []byte(privateString),
+	}, nil
+}
+
 type JwtStorage struct {
 	redis  *redis.Client
 	config *JwtConfig
